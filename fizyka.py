@@ -1,2 +1,2 @@
 for i in range(10):
-    print(i)
+    print("x10: "i*10)
