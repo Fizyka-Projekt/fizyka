@@ -1,5 +1,2 @@
-print("HEllo")
-print("siema")
-print("siema2")
-print("pozdro z pycharma")
-print("ELOLEO")
+for i in range(10):
+    print(i)
