@@ -1,0 +1,9 @@
+1. Klasa atom to podstawa
+2. trzeba opracować jakiś prosty sposób initowania nowego atomu, żeby płynnie je dodawać i żeby okreslały sobie wszystkie parametry
+3. ustawić globalne zmienne typu promień dla klasy 
+4. Można zrobić klase pojemnika która zawieała by np wymiary, można rozważyć podejście by pojemnik przechowywał wszystkie atomy w sobie, coś typu container.atom(1) zwróci dane pierwszego atomu czy np container.atoms() wszystkie atomy i ich parametry
+5. przechowywanie parametrów i ich przekazywanie
+6. jeżeli robimy wariant B to klasa dziedzicząca z klasy atom dotycząca atomu czerwonego któremu będziemy się przyglądać
+7. Oprawa graficzna, trzeba znaleść jakąś biblioteke do tego i to ogarnąć, ale to zadanie dla jednej osoby chyba i to raczej po ogarnięciu tych podstaw wyżej
+8. WAŻNE, czyli w jaki sposób będziemy symulować same zdeżenia, bo nie wiem czy dobrym rozwiązaniem jest kontrolowanie wewnątrz klasy atom albo zbiornik czy przyapdkiem jakiś atom się nie zdeża właśnie, może coś osobnego do tego? to jest do rozważenia
+8. Jeśli te obliczenia wszystkie będą za duże albo będziemy chcieli jakoś urozmaicić symulacje o jakieś giantyczne rozmiary itp to trzeba rozważyć prace na dwóch wątkach żeby to szybciej śmigało (ale nie wiem czy wgl będzie problem z tym)
