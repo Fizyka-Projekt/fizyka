@@ -10,8 +10,8 @@ class AtomBlue():
 
     def __init__(self):
         self.v_x, self.v_y = random.randint(-self.max_v, self.max_v), random.randint(-self.max_v, self.max_v)
-        AtomBlue.atoms_list.append(self)
         # self.x =
         # self.y =
+        AtomBlue.atoms_list.append(self)
 
 # class AtomRed():
