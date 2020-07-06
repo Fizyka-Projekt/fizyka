@@ -5,5 +5,5 @@
 5. przechowywanie parametrów i ich przekazywanie
 6. jeżeli robimy wariant B to klasa dziedzicząca z klasy atom dotycząca atomu czerwonego któremu będziemy się przyglądać
 7. Oprawa graficzna, trzeba znaleść jakąś biblioteke do tego i to ogarnąć, ale to zadanie dla jednej osoby chyba i to raczej po ogarnięciu tych podstaw wyżej
-8. WAŻNE, czyli w jaki sposób będziemy symulować same zdeżenia, bo nie wiem czy dobrym rozwiązaniem jest kontrolowanie wewnątrz klasy atom albo zbiornik czy przyapdkiem jakiś atom się nie zdeża właśnie, może coś osobnego do tego? to jest do rozważenia
+8. WAŻNE, czyli w jaki sposób będziemy symulować same zderzenia, bo nie wiem czy dobrym rozwiązaniem jest kontrolowanie wewnątrz klasy atom albo zbiornik czy przyapdkiem jakiś atom się nie zdeża właśnie, może coś osobnego do tego? to jest do rozważenia
 8. Jeśli te obliczenia wszystkie będą za duże albo będziemy chcieli jakoś urozmaicić symulacje o jakieś giantyczne rozmiary itp to trzeba rozważyć prace na dwóch wątkach żeby to szybciej śmigało (ale nie wiem czy wgl będzie problem z tym)
