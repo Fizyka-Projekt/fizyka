@@ -1,5 +1,5 @@
 import random
-
+import math
 
 class AtomBlue():
     max_atoms_number = 50
@@ -10,8 +10,17 @@ class AtomBlue():
 
     def __init__(self):
         self.v_x, self.v_y = random.randint(-self.max_v, self.max_v), random.randint(-self.max_v, self.max_v)
+        while True:
+            test = True
+            x = random.randint(0+AtomBlue.radius,10-AtomBlue.radius)
+            y = random.randint(0+AtomBlue.radius,10-AtomBlue.radius)
+            for i in range(len(AtomBlue.atoms_list)):
+                if math.sqrt((AtomBlue.atoms_list[i].x-x)**2+(AtomBlue.atoms_list[i].y-y)**2)<2*AtomBlue.radius:
+                    test = False
+            if test:
+                self.x = x
+                self.y = y
+                break
         AtomBlue.atoms_list.append(self)
-        # self.x =
-        # self.y =
 
 # class AtomRed():

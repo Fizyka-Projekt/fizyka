@@ -19,4 +19,6 @@ AtomBlue.mass = 1
 for i in range(5):
     AtomBlue()
 
+for i in range(5):
+    print("x:",AtomBlue.atoms_list[i].x,"y:",AtomBlue.atoms_list[i].y,"v_x:",AtomBlue.atoms_list[i].v_x,"v_y:",AtomBlue.atoms_list[i].v_y)
 
