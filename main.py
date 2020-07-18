@@ -24,3 +24,5 @@ for i in range(5):
     print("x:", atoms.AtomBlue.atoms_list[i].x, "y:", atoms.AtomBlue.atoms_list[i].y, "v_x:",
           atoms.AtomBlue.atoms_list[i].v_x, "v_y:",
           atoms.AtomBlue.atoms_list[i].v_y)
+
+print("Wysokosc:",settings.height,"\nSzerokosc:",settings.length)
