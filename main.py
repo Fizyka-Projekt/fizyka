@@ -17,6 +17,8 @@ import settings
 #     print(a.__dict__)
 #     print("V:", a.v_x, a.v_y)
 
+print("Wysokosc:", settings.height, "\nSzerokosc:", settings.width)
+
 for i in range(5):
     atoms.AtomBlue()
 
@@ -25,4 +27,3 @@ for i in range(5):
           atoms.AtomBlue.atoms_list[i].v_x, "v_y:",
           atoms.AtomBlue.atoms_list[i].v_y)
 
-print("Wysokosc:",settings.height,"\nSzerokosc:",settings.length)

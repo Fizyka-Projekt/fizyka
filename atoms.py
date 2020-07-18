@@ -9,7 +9,7 @@ class AtomBlue:
         self.v_x, self.v_y = random.randint(-settings.max_v, settings.max_v), random.randint(-settings.max_v, settings.max_v)
         while True:
             test = True
-            x = random.randint(0 + settings.radius, settings.length - settings.radius)
+            x = random.randint(0 + settings.radius, settings.width - settings.radius)
             y = random.randint(0 + settings.radius, settings.height - settings.radius)
             for i in range(len(AtomBlue.atoms_list)):
                 if math.sqrt((AtomBlue.atoms_list[i].x - x) ** 2 + (
