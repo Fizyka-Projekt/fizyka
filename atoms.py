@@ -1,7 +1,6 @@
 import random
 import math
-#import box
-
+import box
 
 class AtomBlue:
     max_atoms_number = 50
@@ -25,3 +24,5 @@ class AtomBlue:
                 self.y = y
                 break
         AtomBlue.atoms_list.append(self)
+
+print("wysokosc",box.Box.boxi.height)

@@ -1,8 +1,9 @@
 import atoms
 
-
 class Box:
-    n_H = 10
-    n_L = 10
-    height = n_H * atom.AtomBlue.radius
-    length = n_L * atom.AtomBlue().radius
+    def __init__(self):
+        self.n_H = 10
+        self.n_L = 10
+        self.height = self.n_H * atoms.AtomBlue.radius
+        self.length = self.n_L * atoms.AtomBlue.radius
+        Box.boxi = self
