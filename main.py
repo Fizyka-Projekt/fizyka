@@ -1,5 +1,3 @@
-from typing import Any
-
 import atoms
 
 
@@ -19,8 +17,8 @@ import atoms
 #     print("V:", a.v_x, a.v_y)
 
 for i in range(5):
-    atom.AtomBlue()
+    atoms.AtomBlue()
 
 for i in range(5):
-    print("x:", atom.AtomBlue.atoms_list.x, "y:", atom.AtomBlue.atoms_list[i].y, "v_x:", atom.AtomBlue.atoms_list[i].v_x, "v_y:",
-          atom.AtomBlue.atoms_list[i].v_y)
+    print("x:", atoms.AtomBlue.atoms_list[i].x, "y:", atoms.AtomBlue.atoms_list[i].y, "v_x:", atoms.AtomBlue.atoms_list[i].v_x, "v_y:",
+          atoms.AtomBlue.atoms_list[i].v_y)
