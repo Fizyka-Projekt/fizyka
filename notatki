@@ -1,4 +1,4 @@
-1. Klasa atom to podstawa
+ś1. Klasa atom to podstawa
 2. trzeba opracować jakiś prosty sposób initowania nowego atomu, żeby płynnie je dodawać i żeby okreslały sobie wszystkie parametry
 3. ustawić globalne zmienne typu promień dla klasy 
 4. Można zrobić klase pojemnika która zawieała by np wymiary, można rozważyć podejście by pojemnik przechowywał wszystkie atomy w sobie, coś typu container.atom(1) zwróci dane pierwszego atomu czy np container.atoms() wszystkie atomy i ich parametry
