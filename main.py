@@ -31,4 +31,10 @@ for i in range(7):
           "v_x:",   atoms.AtomBlue.atoms_list[i].v_x,
           "v_y:",   atoms.AtomBlue.atoms_list[i].v_y)
 
-animation.vis()
+animation.draw()
+
+for i in range(settings.M):
+    for j in range(7):
+        atoms.AtomBlue.atoms_list[j].x = atoms.AtomBlue.atoms_list[j].x + atoms.AtomBlue.atoms_list[j].v_x * settings.dt
+        atoms.AtomBlue.atoms_list[j].y = atoms.AtomBlue.atoms_list[j].y + atoms.AtomBlue.atoms_list[j].v_y * settings.dt
+    animation.draw()
