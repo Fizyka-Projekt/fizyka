@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d0afa81c-b177-4a97-9006-6d730650402d" name="Default Changelist" comment="" />
+    <list default="true" id="d0afa81c-b177-4a97-9006-6d730650402d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/fizyka.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fizyka.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/atoms.py" beforeDir="false" afterPath="$PROJECT_DIR$/atoms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,14 +19,15 @@
   <component name="ProjectId" id="1fBRslDwzARnME430WitG6FGd8z" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.settings">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fizyka" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -33,6 +40,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -54,6 +62,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/settings.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -65,8 +74,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.settings" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.settings" />
       </list>
     </recent_temporary>
   </component>
@@ -80,30 +89,38 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595689707977</updated>
+      <workItem from="1595855744837" duration="4549000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="274" key="FileChooserDialogImpl" timestamp="1595693586256">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="278" y="274" key="FileChooserDialogImpl/-1920.208.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595693586256" />
-    <state width="1899" height="348" key="GridCell.Tab.0.bottom" timestamp="1595696559250">
+    <state width="1877" height="129" key="GridCell.Tab.0.bottom" timestamp="1595863928841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="348" key="GridCell.Tab.0.bottom/-1920.208.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595696559250" />
-    <state width="1899" height="348" key="GridCell.Tab.0.center" timestamp="1595696559249">
+    <state width="1877" height="129" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595863928841" />
+    <state width="1877" height="129" key="GridCell.Tab.0.center" timestamp="1595863928841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="348" key="GridCell.Tab.0.center/-1920.208.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595696559249" />
-    <state width="1899" height="348" key="GridCell.Tab.0.left" timestamp="1595696559249">
+    <state width="1877" height="129" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595863928841" />
+    <state width="1877" height="129" key="GridCell.Tab.0.left" timestamp="1595863928841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="348" key="GridCell.Tab.0.left/-1920.208.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595696559249" />
-    <state width="1899" height="348" key="GridCell.Tab.0.right" timestamp="1595696559249">
+    <state width="1877" height="129" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595863928841" />
+    <state width="1877" height="129" key="GridCell.Tab.0.right" timestamp="1595863928841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="348" key="GridCell.Tab.0.right/-1920.208.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595696559249" />
+    <state width="1877" height="129" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595863928841" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1595696559250">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -120,6 +137,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="348" key="GridCell.Tab.1.right/-1920.208.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595696559250" />
+    <state x="755" y="222" key="RollbackChangesDialog" timestamp="1595863922207">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="755" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595863922207" />
     <state x="0" y="162" key="SettingsEditor" timestamp="1595693602772">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -132,5 +153,8 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="150" y="229" width="672" height="678" key="search.everywhere.popup/-1920.208.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595693441190" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/fizyka$main.coverage" NAME="main Coverage Results" MODIFIED="1595864049393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

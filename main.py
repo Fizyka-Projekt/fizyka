@@ -3,6 +3,7 @@ import atoms
 import settings
 import animation
 import time
+import math
 
 
 # standard value settings:
@@ -22,10 +23,10 @@ import time
 
 print("Wysokosc:", settings.height, "\nSzerokosc:", settings.width)
 
-for i in range(7):
+for i in range(10):
     atoms.AtomBlue()
 
-for i in range(7):
+for i in range(10):
     print("x:",     atoms.AtomBlue.atoms_list[i].x,
           "y:",     atoms.AtomBlue.atoms_list[i].y,
           "v_x:",   atoms.AtomBlue.atoms_list[i].v_x,
@@ -34,7 +35,42 @@ for i in range(7):
 animation.draw()
 
 for i in range(settings.M):
-    for j in range(7):
+    for j in range(10):
+        for k in range(10):
+            if 2 * settings.radius < (math.sqrt(
+                    (atoms.AtomBlue.atoms_list[k].x - atoms.AtomBlue.atoms_list[j].x) ** 2 + (
+                            atoms.AtomBlue.atoms_list[k].y - atoms.AtomBlue.atoms_list[
+                        j].y) ** 2)) <= 2 * settings.radius + settings.d:
+                normal_x = (atoms.AtomBlue.atoms_list[k].x - atoms.AtomBlue.atoms_list[j].x) / (math.sqrt(
+                    (atoms.AtomBlue.atoms_list[k].x - atoms.AtomBlue.atoms_list[j].x) ** 2 + (
+                            atoms.AtomBlue.atoms_list[k].y - atoms.AtomBlue.atoms_list[j].y) ** 2))
+                normal_y = (atoms.AtomBlue.atoms_list[k].y - atoms.AtomBlue.atoms_list[j].y) / (math.sqrt(
+                    (atoms.AtomBlue.atoms_list[k].x - atoms.AtomBlue.atoms_list[j].x) ** 2 + (
+                            atoms.AtomBlue.atoms_list[k].y - atoms.AtomBlue.atoms_list[j].y) ** 2))
+                tangential_x = (-(atoms.AtomBlue.atoms_list[k].y - atoms.AtomBlue.atoms_list[j].y)) / (math.sqrt(
+                    (atoms.AtomBlue.atoms_list[k].x - atoms.AtomBlue.atoms_list[j].x) ** 2 + (
+                            atoms.AtomBlue.atoms_list[k].y - atoms.AtomBlue.atoms_list[j].y) ** 2))
+                tangential_y = normal_x
+                velo_norm_1_x = atoms.AtomBlue.atoms_list[j].x * normal_x
+                velo_norm_1_y = atoms.AtomBlue.atoms_list[j].y * normal_y
+                velo_tange_1_x = atoms.AtomBlue.atoms_list[j].x * tangential_x
+                velo_tange_1_y = atoms.AtomBlue.atoms_list[j].y * tangential_y
+                velo_norm_2_x = atoms.AtomBlue.atoms_list[k].x * normal_x
+                velo_norm_2_y = atoms.AtomBlue.atoms_list[k].y * normal_y
+                velo_tange_2_x = atoms.AtomBlue.atoms_list[k].x * tangential_x
+                velo_tange_2_y = atoms.AtomBlue.atoms_list[k].y * tangential_y
+                velo_norm_1_p_x = velo_norm_2_x
+                velo_norm_1_p_y = velo_norm_2_y
+                velo_norm_2_p_x = velo_norm_1_x
+                velo_norm_2_p_y = velo_norm_1_y
+                v_1_prim_x = velo_norm_1_p_x * normal_x + velo_tange_1_x * tangential_x
+                v_1_prim_y = velo_norm_1_p_y * normal_y + velo_tange_1_y * tangential_y
+                v_2_prim_x = velo_norm_2_p_x * normal_x + velo_tange_2_x * tangential_x
+                v_2_prim_y = velo_norm_2_p_y * normal_y + velo_tange_2_y * tangential_y
+                atoms.AtomBlue.atoms_list[j].x = int(v_1_prim_x)
+                atoms.AtomBlue.atoms_list[j].y = int(v_1_prim_y)
+                atoms.AtomBlue.atoms_list[k].x = int(v_2_prim_x)
+                atoms.AtomBlue.atoms_list[k].y = int(v_2_prim_y)
         if atoms.AtomBlue.atoms_list[j].x < settings.radius + settings.d or atoms.AtomBlue.atoms_list[j].x > settings.width - settings.radius - settings.d:
             atoms.AtomBlue.atoms_list[j].v_x = -atoms.AtomBlue.atoms_list[j].v_x
         if atoms.AtomBlue.atoms_list[j].y < settings.radius + settings.d or atoms.AtomBlue.atoms_list[j].y > settings.height - settings.radius - settings.d:
