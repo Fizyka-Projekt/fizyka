@@ -8,5 +8,6 @@ width = n_L * radius
 max_atoms_number = int(0.25 * n_H * n_L)
 k = 10
 dt = 1/(k * max_v) #krok czasu
-M = 50 #ilość odświeżeń
+M = 100 #ilość odświeżeń
 Dt = M * dt #czas eksperymentu
+d = radius/10 #tolerancja zderzenia
