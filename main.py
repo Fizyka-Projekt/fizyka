@@ -35,6 +35,11 @@ animation.draw()
 
 for i in range(settings.M):
     for j in range(7):
+        if atoms.AtomBlue.atoms_list[j].x < settings.radius + settings.d or atoms.AtomBlue.atoms_list[j].x > settings.width - settings.radius - settings.d:
+            atoms.AtomBlue.atoms_list[j].v_x = -atoms.AtomBlue.atoms_list[j].v_x
+        if atoms.AtomBlue.atoms_list[j].y < settings.radius + settings.d or atoms.AtomBlue.atoms_list[j].y > settings.height - settings.radius - settings.d:
+            atoms.AtomBlue.atoms_list[j].v_y = -atoms.AtomBlue.atoms_list[j].v_y
+            
         atoms.AtomBlue.atoms_list[j].x = atoms.AtomBlue.atoms_list[j].x + atoms.AtomBlue.atoms_list[j].v_x * settings.dt
         atoms.AtomBlue.atoms_list[j].y = atoms.AtomBlue.atoms_list[j].y + atoms.AtomBlue.atoms_list[j].v_y * settings.dt
     animation.draw()
