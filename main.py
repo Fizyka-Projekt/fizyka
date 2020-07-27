@@ -34,7 +34,7 @@ for i in range(20):
 
 animation.draw()
 
-for i in range(1000):
+for i in range(settings.M):
     for j in range(20):
         for k in range(20):
             if 2 * settings.radius < (math.sqrt(
