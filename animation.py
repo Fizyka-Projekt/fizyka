@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import matplotlib
 from atoms import AtomBlue as Atom
 import settings
 
@@ -11,8 +10,5 @@ def draw():
     plt.axis('off')
     plt.plot([0, 0, settings.width, settings.width, 0], [0, settings.height, settings.height, 0, 0], '-k')
     plt.draw()
-    plt.pause(0.0000001)
+    plt.pause(settings.dt*00.1)
     plt.clf()
-
-
-print(matplotlib.rcParams['lines.markersize'])

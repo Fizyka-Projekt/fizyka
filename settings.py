@@ -1,13 +1,14 @@
 radius = 1
-max_v = 100
+max_v = 10
 mass = 1
 n_H = 20
 n_L = 20
 height = n_H * radius
 width = n_L * radius
+atoms_number = 3
 max_atoms_number = int(0.25 * n_H * n_L)
-k = 10
+k = 5
 dt = 1/(k * max_v) #krok czasu
-M = 50 #ilość odświeżeń
+M = 500 #ilość odświeżeń
 Dt = M * dt #czas eksperymentu
 d = radius/10 #tolerancja zderzenia

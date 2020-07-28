@@ -2,39 +2,18 @@ import sys
 import atoms
 import settings
 import animation
-import time
 import math
 
 atom_list = atoms.AtomBlue.atoms_list
-# standard value settings:
-# atoms.AtomBlue.max_v = 10
-# atoms.radius = 1
-# atoms.mass = 1
 
-# print Class info
-# print(AtomBlue.__dict__)settings.max_atoms_number
 
-# # eg. list of atoms
-# atoms = list(AtomBlue() for x in range(5))
-#
-# for a in atoms:
-#     print(a.__dict__)
-#     print("V:", a.v_x, a.v_y)
-
-for i in range(20):
+for i in range(settings.atoms_number):
     atoms.AtomBlue()
 
-# for i in range(20):
-#     print("x:", atom_list[i].x,
-#           "y:", atom_list[i].y,
-#           "v_x:", atom_list[i].v_x,
-#           "v_y:", atom_list[i].v_y)
-
-animation.draw()
 
 for i in range(settings.M):
-    for j in range(20):
-        for k in range(20):
+    for j in range(settings.atoms_number):
+        for k in range(settings.atoms_number):
             if 2 * settings.radius < (math.sqrt(
                     (atom_list[k].x - atom_list[j].x) ** 2 + (
                             atom_list[k].y - atom_list[
@@ -79,4 +58,3 @@ for i in range(settings.M):
         atom_list[j].x = atom_list[j].x + atom_list[j].v_x * settings.dt
         atom_list[j].y = atom_list[j].y + atom_list[j].v_y * settings.dt
     animation.draw()
-print(settings.dt)
