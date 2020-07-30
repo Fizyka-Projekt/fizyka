@@ -10,5 +10,5 @@ def draw():
     plt.axis('off')
     plt.plot([0, 0, settings.width, settings.width, 0], [0, settings.height, settings.height, 0, 0], '-k')
     plt.draw()
-    plt.pause(settings.dt*00.1)
+    plt.pause(settings.dt)
     plt.clf()

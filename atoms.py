@@ -9,7 +9,6 @@ class AtomBlue:
     def __init__(self):
         self.v_x, self.v_y = random.randint(-settings.max_v, settings.max_v), random.randint(-settings.max_v,
                                                                                              settings.max_v)
-
         while True:
             test = True
             x = random.randint(0 + settings.radius, settings.width - settings.radius)
