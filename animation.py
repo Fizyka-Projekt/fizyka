@@ -3,6 +3,12 @@ from atoms import AtomBlue as Atom
 import settings
 
 
+# class Visualization:
+#     def __init__(self, ):
+
+
+
+
 def draw():
     plt.axes(xlim=(0, settings.width), ylim=(0, settings.height))
     for a in Atom.atoms_list:
@@ -10,5 +16,5 @@ def draw():
     plt.axis('off')
     plt.plot([0, 0, settings.width, settings.width, 0], [0, settings.height, settings.height, 0, 0], '-k')
     plt.draw()
-    plt.pause(settings.dt)
+    plt.pause(settings.dt*0.001)
     plt.clf()
