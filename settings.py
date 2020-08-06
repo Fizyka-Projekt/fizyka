@@ -1,11 +1,11 @@
 radius = 1
 max_v = 1
 mass = 1
-n_H = 20
+n_H = 50
 n_L = 20
 height = n_H * radius
 width = n_L * radius
-atoms_number = 20
+atoms_number = 50
 max_atoms_number = int(0.25 * n_H * n_L)
 k = min([n_H, n_L])
 dt = 1 / (k * max_v)  # krok czasu
