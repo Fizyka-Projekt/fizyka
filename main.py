@@ -7,9 +7,11 @@ import numpy as np
 
 atom_list = atoms.AtomBlue.atoms_list
 
-
+atoms.AtomRed()
 for i in range(settings.atoms_number):
     atoms.AtomBlue()
+
+
 
 animation.draw()
 
@@ -44,7 +46,7 @@ def change_v(i):
         atom_list[k].v_y = u_2[1]
 
 
-    for j in range(i+1,settings.atoms_number):
+    for j in range(i+1,settings.atoms_number+1):
         d = math.sqrt((atom_list[i].x - atom_list[j].x) ** 2 + (atom_list[i].y - atom_list[j].y) ** 2)
         next_1_x = atom_list[i].x + atom_list[i].v_x * settings.dt
         next_1_y = atom_list[i].y + atom_list[i].v_y * settings.dt
@@ -58,7 +60,7 @@ def change_v(i):
 
 
 while True:
-    for i in range(settings.atoms_number):
+    for i in range(settings.atoms_number+1):
         test = change_v(i)
         if test:
             change_position(i)
