@@ -13,7 +13,10 @@ def draw():
     box.axes(xlim=(0, settings.width), ylim=(0, settings.height))
 
     for a in Atom.atoms_list:
-        box.gcf().gca().add_artist(plt.Circle((a.x, a.y), settings.radius, color='b'))
+        if type(a) == Atom:
+            box.gcf().gca().add_artist(plt.Circle((a.x, a.y), settings.radius, color='b'))
+        else:
+            box.gcf().gca().add_artist(plt.Circle((a.x, a.y), settings.radius, color='r'))
 
     box.plot([0, 0, settings.width, settings.width, 0], [0, settings.height, settings.height, 0, 0] , '-k')
 
