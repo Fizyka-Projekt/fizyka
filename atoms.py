@@ -35,3 +35,11 @@ class AtomBlue:
 
         atom_list[j].x = atom_list[j].x + atom_list[j].v_x * settings.dt
         atom_list[j].y = atom_list[j].y + atom_list[j].v_y * settings.dt
+        
+class AtomRed:
+
+    def __init__(self):
+        self.v_x, self.v_y = random.randint(0, settings.max_v), random.randint(0, settings.max_v)
+        self.x = settings.radius
+        self.y = settings.radius
+        AtomBlue.atoms_list.append(self)
