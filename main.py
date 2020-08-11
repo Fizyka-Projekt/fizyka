@@ -6,6 +6,7 @@ import numpy as np
 
 f = open("red_atom_info.txt", "w")
 path = 0
+collisions = 0
 atom_list = atoms.AtomBlue.atoms_list
 
 atoms.AtomRed()
@@ -17,15 +18,20 @@ animation.draw()
 
 def change_position(i):
     global path
+    global collisions
 
     if settings.radius + settings.d > atom_list[i].x > atom_list[i].x + atom_list[i].v_x * settings.dt or atom_list[
         i].x > settings.width - settings.radius - settings.d and atom_list[i].x + atom_list[i].v_x * settings.dt > \
             atom_list[i].x:
         atom_list[i].v_x = -atom_list[i].v_x
+        if i == 0:
+            collisions += 1
     if settings.radius + settings.d > atom_list[i].y > atom_list[i].y + atom_list[i].v_y * settings.dt or atom_list[
         i].y > settings.height - settings.radius - settings.d and atom_list[i].y + atom_list[i].v_y * settings.dt > \
             atom_list[i].y:
         atom_list[i].v_y = -atom_list[i].v_y
+        if i == 0:
+            collisions += 1
 
     if i == 0:
         path = path + math.sqrt(atom_list[i].v_x * atom_list[i].v_x + atom_list[i].v_y * atom_list[i].v_y) * settings.dt
@@ -69,10 +75,12 @@ while True:
         if test:
             change_position(i)
 
-    s_path = str(path)
+    s_path = "Path: " + str(path) + '\n'
+    s_collisions = "Collisions: " + str(collisions) + '\n'
     f.write(s_path)
-    f.write("\n")
+    f.write(s_collisions)
     animation.draw()
 
 
 f.close()
+
