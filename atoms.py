@@ -23,18 +23,6 @@ class AtomBlue:
                 break
         AtomBlue.atoms_list.append(self)
 
-    def move(self):
-        self.x = self.x + self.v_x * settings.dt
-        self.y = self.y + self.v_y * settings.dt
-
-
-
-    def collision(self, enemy):
-
-        enemy_id = AtomBlue.atoms_list.index(enemy)
-
-        atom_list[j].x = atom_list[j].x + atom_list[j].v_x * settings.dt
-        atom_list[j].y = atom_list[j].y + atom_list[j].v_y * settings.dt
         
 class AtomRed:
 
@@ -43,3 +31,4 @@ class AtomRed:
         self.x = settings.radius
         self.y = settings.radius
         AtomBlue.atoms_list.append(self)
+
