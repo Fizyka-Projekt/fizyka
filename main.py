@@ -5,8 +5,10 @@ import math
 import numpy as np
 
 f = open("red_atom_info.txt", "w")
+
 path = 0
 collisions = 0
+
 atom_list = atoms.AtomBlue.atoms_list
 
 atoms.AtomRed()
@@ -76,7 +78,7 @@ while True:
             change_position(i)
 
     s_path = "Path: " + str(path) + '\n'
-    s_collisions = "Collisions: " + str(collisions) + '\n'
+    s_collisions = "Collisions: " + str(collisions) + "\n"
     f.write(s_path)
     f.write(s_collisions)
     animation.draw()
