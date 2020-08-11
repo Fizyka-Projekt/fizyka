@@ -4,19 +4,20 @@ import animation
 import math
 import numpy as np
 
-
+f = open("red_atom_info.txt", "w")
+path = 0
 atom_list = atoms.AtomBlue.atoms_list
 
 atoms.AtomRed()
 for i in range(settings.atoms_number):
     atoms.AtomBlue()
 
-
-
 animation.draw()
 
 
 def change_position(i):
+    global path
+
     if settings.radius + settings.d > atom_list[i].x > atom_list[i].x + atom_list[i].v_x * settings.dt or atom_list[
         i].x > settings.width - settings.radius - settings.d and atom_list[i].x + atom_list[i].v_x * settings.dt > \
             atom_list[i].x:
@@ -26,13 +27,17 @@ def change_position(i):
             atom_list[i].y:
         atom_list[i].v_y = -atom_list[i].v_y
 
+    if i == 0:
+        path = path + math.sqrt(atom_list[i].v_x * atom_list[i].v_x + atom_list[i].v_y * atom_list[i].v_y) * settings.dt
+
     atom_list[i].x = atom_list[i].x + atom_list[i].v_x * settings.dt
     atom_list[i].y = atom_list[i].y + atom_list[i].v_y * settings.dt
 
 
 def change_v(i):
     test = True
-    def change_velocities(j,k):
+
+    def change_velocities(j, k):
         r_1 = np.array((atom_list[j].x, atom_list[j].y))
         r_2 = np.array((atom_list[k].x, atom_list[k].y))
         v_1 = np.array((atom_list[j].v_x, atom_list[j].v_y))
@@ -45,8 +50,7 @@ def change_v(i):
         atom_list[k].v_x = u_2[0]
         atom_list[k].v_y = u_2[1]
 
-
-    for j in range(i+1,settings.atoms_number+1):
+    for j in range(i + 1, settings.atoms_number + 1):
         d = math.sqrt((atom_list[i].x - atom_list[j].x) ** 2 + (atom_list[i].y - atom_list[j].y) ** 2)
         next_1_x = atom_list[i].x + atom_list[i].v_x * settings.dt
         next_1_y = atom_list[i].y + atom_list[i].v_y * settings.dt
@@ -60,8 +64,15 @@ def change_v(i):
 
 
 while True:
-    for i in range(settings.atoms_number+1):
+    for i in range(settings.atoms_number + 1):
         test = change_v(i)
         if test:
             change_position(i)
+
+    s_path = str(path)
+    f.write(s_path)
+    f.write("\n")
     animation.draw()
+
+
+f.close()
