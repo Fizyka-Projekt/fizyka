@@ -68,20 +68,42 @@ def change_v(i):
             change_velocities(i, j)
         if d_after < d <= 2*settings.radius:
             change_velocities(i, j)
+            
+   
+plot_xdata = [x for x in range(10, settings.max_atoms_number, 5)]
+plot_ydata = []
+Mlist = [10, 20, 50, 100]
 
+animation.draw(1)
+if settings.atoms_number not in plot_xdata:
+    plot_xdata.append(settings.atoms_number)
+    plot_xdata.sort()
+if settings.frames not in Mlist:
+    Mlist.append(settings.frames)
+    Mlist.sort()
 
-x = 1
-animation.draw(x)
-x = 0
-add_atoms()
-animation.draw(x)
-for j in range(settings.frames):
-    for k in range(settings.atoms_number+1):
-        change_position(k)
-    for i in range(settings.atoms_number+1):
-        change_v(i)
-    s_path = "Path: " + str(path) + '\n'
+for M in Mlist:
+    for N in plot_xdata:
+        path = 0
+        collisions = 1
+        atoms.AtomBlue.atoms_list = []
+        atom_list = atoms.AtomBlue.atoms_list
+        add_atoms(N)
+        if N == settings.atoms_number and M == settings.frames:
+            animation.draw(0)
+        for j in range(M):
+            for k in range(N + 1):
+                change_position(k)
+            for i in range(N + 1):
+                change_v(i,N)
+            if N == settings.atoms_number and M == settings.frames:
+                animation.draw(0)
+                s_path = "Path: " + str(path) + '\n'
     s_collisions = "Collisions: " + str(collisions) + "\n"
     f.write(s_path)
     f.write(s_collisions)
-    animation.draw(x)
+        plot_ydata.append(path/collisions)
+        if N == settings.atoms_number and M == settings.frames:
+            print("Please wait until all calculations are finished")
+
+animation.plots(plot_xdata,plot_ydata,Mlist)
