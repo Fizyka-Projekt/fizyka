@@ -10,6 +10,7 @@ def draw(x):
     # plt.style.use('dark_background')
     if x == 1:
         plt.figure(figsize=(5, 4))
+        plt.gcf().canvas.set_window_title("Symulator Zderzeń")
         def next(text):
             settings.atoms_number = int(text)
 
@@ -60,14 +61,23 @@ def draw(x):
         box.clf()
 
 
-def plots(x,y,M):
-    plt.gcf().canvas.set_window_title("Symulator Zderzeń")
+def plots(x,y,y2,M):
     for m in range(len(M)):
+        plt.gcf().canvas.set_window_title("Symulator Zderzeń")
+        plt.gcf().suptitle('M = ' + str(M[m]))
+        plt.subplot(211)
         plt.plot(x, y[m*len(x):m*len(x)+len(x)], '-o')
         if M[m] == settings.frames:
             plt.plot(settings.atoms_number,y[m*len(x)+x.index(settings.atoms_number)], 'ro')
         plt.xlabel('Liczba atomów')
         plt.ylabel('Średnia droga swobodna')
-        title="Wykres zależności średniej drogi swobodnej od liczby atomów dla M = " + str(M[m])
-        plt.title(title)
+        plt.title("Wykres zależności średniej drogi swobodnej od liczby atomów")
+
+        plt.subplot(212)
+        plt.plot(x, y2[m * len(x):m * len(x) + len(x)], '-o')
+        if M[m] == settings.frames:
+            plt.plot(settings.atoms_number, y2[m * len(x) + x.index(settings.atoms_number)], 'ro')
+        plt.xlabel('Liczba atomów')
+        plt.ylabel('Częstość zderzeń cząstki czerwonej')
+        plt.title("Wykres zależności częstości zderzeń cząstki czerwonej od liczby atomów")
         plt.show()
