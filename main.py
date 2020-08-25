@@ -31,9 +31,8 @@ def change_position(i):
     atom_list[i].x = atom_list[i].x + atom_list[i].v_x * settings.dt
     atom_list[i].y = atom_list[i].y + atom_list[i].v_y * settings.dt
 
-
 def change_v(i,N):
-
+    global collisions
     def change_velocities(j, k):
         r1 = np.array((atom_list[j].x, atom_list[j].y))
         r2 = np.array((atom_list[k].x, atom_list[k].y))
@@ -60,8 +59,13 @@ def change_v(i,N):
         d_after = math.sqrt((next_1_x - next_2_x) ** 2 + (next_1_y - next_2_y) ** 2)
         if 2*settings.radius < d <= 2 * settings.radius + settings.d and d > d_after:
             change_velocities(i, j)
+            if i == 0 or j==0:
+                collisions += 1
         if d_after < d <= 2*settings.radius:
             change_velocities(i, j)
+            if i == 0 or j==0:
+                collisions += 1
+
 
 plot_xdata = [x for x in range(10, settings.max_atoms_number, 5)]
 plot_ydata = []

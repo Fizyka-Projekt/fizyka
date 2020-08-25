@@ -65,6 +65,7 @@ def plots(x,y,y2,M):
     for m in range(len(M)):
         plt.gcf().canvas.set_window_title("Symulator Zderzeń")
         plt.gcf().suptitle('M = ' + str(M[m]))
+        plt.tight_layout(pad=10, w_pad=10, h_pad=10)
         plt.subplot(211)
         plt.plot(x, y[m*len(x):m*len(x)+len(x)], '-o')
         if M[m] == settings.frames:
@@ -80,4 +81,5 @@ def plots(x,y,y2,M):
         plt.xlabel('Liczba atomów')
         plt.ylabel('Częstość zderzeń cząstki czerwonej')
         plt.title("Wykres zależności częstości zderzeń cząstki czerwonej od liczby atomów")
+        plt.tight_layout(pad=10, w_pad=10, h_pad=10)
         plt.show()
