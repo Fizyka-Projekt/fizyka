@@ -4,18 +4,12 @@ import animation
 import math
 import numpy as np
 
-
-f = open("red_atom_info.txt","w")
-
 path = 0
 collisions = 0
 
-atom_list = atoms.AtomBlue.atoms_list
-
-
-def add_atoms():
+def add_atoms(N):
     atoms.AtomRed()
-    for i in range(settings.atoms_number):
+    for i in range(N):
         atoms.AtomBlue()
 
 
@@ -38,7 +32,7 @@ def change_position(i):
     atom_list[i].y = atom_list[i].y + atom_list[i].v_y * settings.dt
 
 
-def change_v(i):
+def change_v(i,N):
 
     def change_velocities(j, k):
         r1 = np.array((atom_list[j].x, atom_list[j].y))
@@ -57,7 +51,7 @@ def change_v(i):
         atom_list[k].v_x = (v2n * (r2[0] - r1[0]) - v2t * (r2[1] - r1[1])) / d
         atom_list[k].v_y = (v2n * (r2[1] - r1[1]) + v2t * (r2[0] - r1[0])) / d
 
-    for j in range(i+1,settings.atoms_number+1):
+    for j in range(i+1,N+1):
         d = math.sqrt((atom_list[i].x - atom_list[j].x) ** 2 + (atom_list[i].y - atom_list[j].y) ** 2)
         next_1_x = atom_list[i].x + atom_list[i].v_x * settings.dt
         next_1_y = atom_list[i].y + atom_list[i].v_y * settings.dt
@@ -68,10 +62,10 @@ def change_v(i):
             change_velocities(i, j)
         if d_after < d <= 2*settings.radius:
             change_velocities(i, j)
-            
-   
+
 plot_xdata = [x for x in range(10, settings.max_atoms_number, 5)]
 plot_ydata = []
+plot2_ydata = []
 Mlist = [10, 20, 50, 100]
 
 animation.draw(1)
@@ -98,12 +92,9 @@ for M in Mlist:
                 change_v(i,N)
             if N == settings.atoms_number and M == settings.frames:
                 animation.draw(0)
-                s_path = "Path: " + str(path) + '\n'
-    s_collisions = "Collisions: " + str(collisions) + "\n"
-    f.write(s_path)
-    f.write(s_collisions)
         plot_ydata.append(path/collisions)
+        plot2_ydata.append(collisions/M*settings.dt)
         if N == settings.atoms_number and M == settings.frames:
             print("Please wait until all calculations are finished")
 
-animation.plots(plot_xdata,plot_ydata,Mlist)
+animation.plots(plot_xdata,plot_ydata,plot2_ydata,Mlist)
