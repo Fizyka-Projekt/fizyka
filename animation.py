@@ -5,7 +5,7 @@ import settings
 from matplotlib.widgets import TextBox, Button
 
 
-def draw(x):
+def draw(x, red):
     mpl.rcParams['toolbar'] = 'None'
     # plt.style.use('dark_background')
     if x == 1:
@@ -54,7 +54,7 @@ def draw(x):
                  "atoms: {}\n\nframes: {}\n\nκ: {}".format(settings.atoms_number, settings.frames, settings.k),
                  bbox=props)
         box.text(-6.5, 15.5,
-                 "ścieżka: {}\n\nzderzenia: {}".format(main.path, main.collisions),
+                 "ścieżka: {}\n\nzderzenia: {}".format(red.path, red.collisions),
                  bbox=props)
 
         box.axis('scaled')
