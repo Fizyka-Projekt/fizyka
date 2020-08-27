@@ -94,8 +94,8 @@ for M in Mlist:
                 change_v(i, N, atom_list[0])
             if N == settings.atoms_number and M == settings.frames:
                 animation.draw(0,atom_list[0])
-        plot_ydata.append(atom_list[0].path / atom_list[0].collisions)
-        plot2_ydata.append(atom_list[0].collisions / M * settings.dt)
+        plot_ydata.append(atom_list[0].path / atom_list[0].collisions + 1)
+        plot2_ydata.append(atom_list[0].collisions + 1 / M * settings.dt)
         if N == settings.atoms_number and M == settings.frames:
             print("Please wait until all calculations are finished")
 
