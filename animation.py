@@ -12,11 +12,14 @@ def draw(x, red):
         plt.figure(figsize=(5, 4))
         plt.gcf().canvas.set_window_title("Symulator Zderzeń")
 
-        def next(text):
+        def n_of_atoms(text):
             settings.atoms_number = int(text)
 
         def frames(text):
             settings.frames = int(text)
+
+        def n_H_n_L(text):
+            settings.n_H = int(text)
 
         def kappa(text):
             settings.k = int(text)
@@ -28,13 +31,16 @@ def draw(x, red):
         t_atoms = TextBox(ax_atoms, 'Atoms: ', color='r', hovercolor='firebrick')
         ax_frames = plt.axes([0.4, 0.6, 0.2, 0.075])
         t_frames = TextBox(ax_frames, 'Frames: ', color='r', hovercolor='firebrick')
-        ax_kappa = plt.axes([0.4, 0.5, 0.2, 0.075])
+        ax_n = plt.axes([0.4, 0.5, 0.2, 0.075])
+        t_n = TextBox(ax_n, 'nh, nl: ', color='r', hovercolor='firebrick')
+        ax_kappa = plt.axes([0.4, 0.4, 0.2, 0.075])
         t_kappa = TextBox(ax_kappa, 'Kappa: ', color='r', hovercolor='firebrick')
         ax_button = plt.axes([0.7, 0.3, 0.2, 0.075])
         bbutton = Button(ax_button, 'Confirm', color='b', hovercolor='royalblue')
         bbutton.on_clicked(enter)
-        t_atoms.on_submit(next)
+        t_atoms.on_submit(n_of_atoms)
         t_frames.on_submit(frames)
+        t_n.on_submit(n_H_n_L)
         t_kappa.on_submit(kappa)
         plt.text(-1.6, 7.5, "Enter data", fontsize=18)
         plt.show()
