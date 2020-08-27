@@ -4,6 +4,20 @@ import animation
 import math
 import numpy as np
 
+
+def check():
+    if settings.n_H < 20:
+        settings.n_H = 20
+    settings.n_L = settings.n_H
+    settings.max_atoms_number = int(0.25 * min([settings.n_H, settings.n_L]))
+    if settings.max_atoms_number < settings.atoms_number or settings.atoms_number <= 0:
+        settings.atoms_number = 20
+    if settings.k < min(settings.n_H,settings.n_L):
+        settings.k = min(settings.n_H,settings.n_L)
+    settings.dt = 1 / (settings.k * settings.max_v)
+    settings.Dt = settings.frames * settings.dt
+
+
 def add_atoms(N):
     atoms.AtomRed()
     for i in range(N):
@@ -69,6 +83,7 @@ plot2_ydata = []
 Mlist = [500]  # [10, 20, 50, 100]
 
 animation.draw(1,atoms.AtomRed())
+check()
 
 if settings.atoms_number not in plot_xdata:
     plot_xdata.append(settings.atoms_number)
