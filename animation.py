@@ -11,6 +11,7 @@ def draw(x):
     if x == 1:
         plt.figure(figsize=(5, 4))
         plt.gcf().canvas.set_window_title("Symulator Zderzeń")
+
         def next(text):
             settings.atoms_number = int(text)
 
@@ -26,16 +27,16 @@ def draw(x):
         ax_atoms = plt.axes([0.4, 0.7, 0.2, 0.075])
         t_atoms = TextBox(ax_atoms, 'Atoms: ', color='r', hovercolor='firebrick')
         ax_frames = plt.axes([0.4, 0.6, 0.2, 0.075])
-        t_frames = TextBox(ax_frames, 'Frames: ', color='r',hovercolor='firebrick')
+        t_frames = TextBox(ax_frames, 'Frames: ', color='r', hovercolor='firebrick')
         ax_kappa = plt.axes([0.4, 0.5, 0.2, 0.075])
-        t_kappa = TextBox(ax_kappa, 'Kappa: ', color='r',hovercolor='firebrick')
-        ax_button = plt.axes([0.7,0.3,0.2,0.075])
-        bbutton = Button(ax_button,'Confirm',color='b',hovercolor='royalblue')
+        t_kappa = TextBox(ax_kappa, 'Kappa: ', color='r', hovercolor='firebrick')
+        ax_button = plt.axes([0.7, 0.3, 0.2, 0.075])
+        bbutton = Button(ax_button, 'Confirm', color='b', hovercolor='royalblue')
         bbutton.on_clicked(enter)
         t_atoms.on_submit(next)
         t_frames.on_submit(frames)
         t_kappa.on_submit(kappa)
-        plt.text(-1.6,7.5,"Enter data",fontsize=18)
+        plt.text(-1.6, 7.5, "Enter data", fontsize=18)
         plt.show()
     else:
         box = plt
@@ -49,7 +50,13 @@ def draw(x):
                 box.gcf().gca().add_artist(plt.Circle((a.x, a.y), settings.radius, color='r'))
 
         box.plot([0, 0, settings.width, settings.width, 0], [0, settings.height, settings.height, 0, 0], '-k')
-        box.text(-6.5,15.5,"atoms: {}\n\nframes: {}\n\nKappa: {}".format(settings.atoms_number,settings.frames,settings.k),bbox=props)
+        box.text(-6.5, 15.5,
+                 "atoms: {}\n\nframes: {}\n\nκ: {}".format(settings.atoms_number, settings.frames, settings.k),
+                 bbox=props)
+        box.text(-6.5, 15.5,
+                 "ścieżka: {}\n\nzderzenia: {}".format(main.path, main.collisions),
+                 bbox=props)
+
         box.axis('scaled')
         box.axis(False)
 
@@ -57,19 +64,18 @@ def draw(x):
         box.yticks([])
 
         box.draw()
-        box.pause(settings.dt)
+        box.pause(settings.dt*0.0000001)
         box.clf()
 
 
-def plots(x,y,y2,M):
+def plots(x, y, y2, M):
     for m in range(len(M)):
         plt.gcf().canvas.set_window_title("Symulator Zderzeń")
         plt.gcf().suptitle('M = ' + str(M[m]))
-        # plt.tight_layout(pad=10, w_pad=10, h_pad=10)
         plt.subplot(211)
-        plt.plot(x, y[m*len(x):m*len(x)+len(x)], '-o')
+        plt.plot(x, y[m * len(x):m * len(x) + len(x)], '-o')
         if M[m] == settings.frames:
-            plt.plot(settings.atoms_number,y[m*len(x)+x.index(settings.atoms_number)], 'ro')
+            plt.plot(settings.atoms_number, y[m * len(x) + x.index(settings.atoms_number)], 'ro')
         plt.xlabel('Liczba atomów')
         plt.ylabel('Średnia droga swobodna')
         plt.title("Wykres zależności średniej drogi swobodnej od liczby atomów")

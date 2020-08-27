@@ -3,6 +3,12 @@ import math
 import settings
 
 
+def add_atoms(N):
+    AtomRed()
+    for i in range(N):
+        AtomBlue()
+
+
 class AtomBlue:
     atoms_list = []
 
