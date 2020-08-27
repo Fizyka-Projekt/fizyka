@@ -4,13 +4,13 @@ import animation
 import math
 import numpy as np
 
-path = 0
-collisions = 0
+def add_atoms(N):
+    atoms.AtomRed()
+    for i in range(N):
+        atoms.AtomBlue()
 
 
-def change_position(i):
-    global path
-    global collisions
+def change_position(i, red):
     if settings.radius + settings.d > atom_list[i].x > atom_list[i].x + atom_list[i].v_x * settings.dt or atom_list[
         i].x > settings.width - settings.radius - settings.d and atom_list[i].x + atom_list[i].v_x * settings.dt > \
             atom_list[i].x:
@@ -21,14 +21,13 @@ def change_position(i):
         atom_list[i].v_y = -atom_list[i].v_y
 
     if i == 0:
-        path = path + math.sqrt(atom_list[i].v_x * atom_list[i].v_x + atom_list[i].v_y * atom_list[i].v_y) * settings.dt
+        red.path = red.path + math.sqrt(atom_list[i].v_x * atom_list[i].v_x + atom_list[i].v_y * atom_list[i].v_y) * settings.dt
 
     atom_list[i].x = atom_list[i].x + atom_list[i].v_x * settings.dt
     atom_list[i].y = atom_list[i].y + atom_list[i].v_y * settings.dt
 
 
-def change_v(i, N):
-    global collisions
+def change_v(i, N, red):
 
     def change_velocities(j, k):
         r1 = np.array((atom_list[j].x, atom_list[j].y))
@@ -57,11 +56,11 @@ def change_v(i, N):
         if 2 * settings.radius < d <= 2 * settings.radius + settings.d and d > d_after:
             change_velocities(i, j)
             if i == 0 or j == 0:
-                collisions += 1
+                red.collisions += 1
         if d_after < d <= 2 * settings.radius:
             change_velocities(i, j)
             if i == 0 or j == 0:
-                collisions += 1
+                red.collisions += 1
 
 
 plot_xdata = [x for x in range(10, settings.max_atoms_number + 1, 5)]
@@ -69,7 +68,7 @@ plot_ydata = []
 plot2_ydata = []
 Mlist = [500]  # [10, 20, 50, 100]
 
-animation.draw(1)
+animation.draw(1,atoms.AtomRed())
 
 if settings.atoms_number not in plot_xdata:
     plot_xdata.append(settings.atoms_number)
@@ -81,22 +80,22 @@ if settings.frames not in Mlist:
 
 for M in Mlist:
     for N in plot_xdata:
-        path = 0
-        collisions = 1
         atoms.AtomBlue.atoms_list = []
         atom_list = atoms.AtomBlue.atoms_list
-        atoms.add_atoms(N)
+        add_atoms(N)
+        path = atom_list[0].path
+        collisions = atom_list[0].collisions
         if N == settings.atoms_number and M == settings.frames:
-            animation.draw(0)
+            animation.draw(0,atom_list[0])
         for j in range(M):
             for k in range(N + 1):
-                change_position(k)
+                change_position(k,atom_list[0])
             for i in range(N + 1):
-                change_v(i, N)
+                change_v(i, N, atom_list[0])
             if N == settings.atoms_number and M == settings.frames:
-                animation.draw(0)
-        plot_ydata.append(path / collisions)
-        plot2_ydata.append(collisions / M * settings.dt)
+                animation.draw(0,atom_list[0])
+        plot_ydata.append(atom_list[0].path / atom_list[0].collisions)
+        plot2_ydata.append(atom_list[0].collisions / M * settings.dt)
         if N == settings.atoms_number and M == settings.frames:
             print("Please wait until all calculations are finished")
 
