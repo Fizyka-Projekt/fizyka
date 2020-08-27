@@ -37,5 +37,5 @@ class AtomRed:
         self.x = settings.radius
         self.y = settings.radius
         AtomBlue.atoms_list.append(self)
-        self.collisions = 1
+        self.collisions = 0
         self.path = 0
