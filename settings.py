@@ -4,7 +4,7 @@ mass = 1
 max_atoms_number = 50  # int(0.25 * min([n_H, n_L]))
 
 n_H = 50
-n_L = 50
+n_L = n_H
 height = n_H * radius
 width = n_L * radius
 
