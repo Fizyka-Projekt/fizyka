@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+from mpl_toolkits.mplot3d.proj3d import transform
+
 from atoms import AtomBlue as Atom
 import settings
 from matplotlib.widgets import TextBox, Button
@@ -56,11 +58,11 @@ def draw(x, red):
                 box.gcf().gca().add_artist(plt.Circle((a.x, a.y), settings.radius, color='r'))
 
         box.plot([0, 0, settings.width, settings.width, 0], [0, settings.height, settings.height, 0, 0], '-k')
-        box.text(-6.5, 15.5,
+        box.text(0.4* (-settings.n_L*settings.radius + 1), 0.6*(settings.n_H*settings.radius - 1),
                  "atoms: {}\n\nframes: {}\n\nκ: {}".format(settings.atoms_number, settings.frames, settings.k),
                  bbox=props)
-        box.text(-6.5, 15.5,
-                 "ścieżka: {}\n\nzderzenia: {}".format(red.path, red.collisions),
+        box.text(0.4* (-settings.n_L*settings.radius + 1), 0.4*(settings.n_H*settings.radius - 1),
+                 "ścieżka: {:3.3f}\n\nzderzenia: {}".format(red.path, red.collisions),
                  bbox=props)
 
         box.axis('scaled')
