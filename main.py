@@ -11,9 +11,9 @@ def check():
     settings.n_L = settings.n_H
     settings.max_atoms_number = int(0.125 * settings.n_H * settings.n_L)
     if settings.max_atoms_number < settings.atoms_number or settings.atoms_number <= 0:
-        settings.atoms_number = 20
-    if settings.k < min(settings.n_H,settings.n_L):
-        settings.k = min(settings.n_H,settings.n_L)
+        settings.atoms_number = int(0.5*0.125 * settings.n_H * settings.n_L)
+    if settings.k > min(settings.n_H, settings.n_L):
+        settings.k = 5
     settings.dt = 1 / (settings.k * settings.max_v)
     settings.Dt = settings.frames * settings.dt
     settings.width = settings.n_L * settings.radius
@@ -86,7 +86,7 @@ check()
 plot_xdata = [x for x in range(10, settings.max_atoms_number + 1, 5)]
 plot_ydata = []
 plot2_ydata = []
-Mlist = [200]  # [10, 20, 50, 100]
+Mlist = [50, 100]
 
 if settings.atoms_number not in plot_xdata:
     plot_xdata.append(settings.atoms_number)
