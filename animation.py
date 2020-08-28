@@ -9,7 +9,7 @@ from matplotlib.widgets import TextBox, Button
 
 def draw(x, red):
     mpl.rcParams['toolbar'] = 'None'
-    # plt.style.use('dark_background')
+    plt.style.use('dark_background')
     if x == 1:
         plt.figure(figsize=(5, 4))
         plt.gcf().canvas.set_window_title("Symulator Zderzeń")
@@ -34,7 +34,7 @@ def draw(x, red):
         ax_frames = plt.axes([0.4, 0.6, 0.2, 0.075])
         t_frames = TextBox(ax_frames, 'Frames: ', color='r', hovercolor='firebrick')
         ax_n = plt.axes([0.4, 0.5, 0.2, 0.075])
-        t_n = TextBox(ax_n, 'nh, nl: ', color='r', hovercolor='firebrick')
+        t_n = TextBox(ax_n, 'ηh, ηl: ', color='r', hovercolor='firebrick')
         ax_kappa = plt.axes([0.4, 0.4, 0.2, 0.075])
         t_kappa = TextBox(ax_kappa, 'Kappa: ', color='r', hovercolor='firebrick')
         ax_button = plt.axes([0.7, 0.3, 0.2, 0.075])
@@ -48,7 +48,7 @@ def draw(x, red):
         plt.show()
     else:
         box = plt
-        props = dict(boxstyle='round', facecolor='white', alpha=0.5)
+        props = dict(boxstyle='round', facecolor='black', alpha=0)
         box.gcf().canvas.set_window_title("Symulator Zderzeń")
         box.axes(xlim=(0, settings.width), ylim=(0, settings.height))
         for a in Atom.atoms_list:
@@ -57,12 +57,13 @@ def draw(x, red):
             else:
                 box.gcf().gca().add_artist(plt.Circle((a.x, a.y), settings.radius, color='r'))
 
-        box.plot([0, 0, settings.width, settings.width, 0], [0, settings.height, settings.height, 0, 0], '-k')
-        box.text(0.4* (-settings.n_L*settings.radius + 1), 0.6*(settings.n_H*settings.radius - 1),
-                 "atoms: {}\n\nframes: {}\n\nκ: {}".format(settings.atoms_number, settings.frames, settings.k),
+        box.plot([0, 0, settings.width, settings.width, 0], [0, settings.height, settings.height, 0, 0], '-y')
+
+        box.text(0.4 * (-settings.n_L * settings.radius + 1), 0.6 * (settings.n_H * settings.radius - 1),
+                 "atoms: {:>10}\n\nframes: {:>8}\n\nκ: {:>18}".format(settings.atoms_number, settings.frames, settings.k),
                  bbox=props)
-        box.text(0.4* (-settings.n_L*settings.radius + 1), 0.4*(settings.n_H*settings.radius - 1),
-                 "ścieżka: {:3.3f}\n\nzderzenia: {}".format(red.path, red.collisions),
+        box.text(0.4 * (-settings.n_L * settings.radius + 1), 0.4 * (settings.n_H * settings.radius - 1),
+                 "path: {:>12.2f}\n\ncollisions: {:>7}".format(red.path, red.collisions),
                  bbox=props)
 
         box.axis('scaled')
@@ -72,7 +73,7 @@ def draw(x, red):
         box.yticks([])
 
         box.draw()
-        box.pause(settings.dt*0.0000001)
+        box.pause(settings.dt)
         box.clf()
 
 

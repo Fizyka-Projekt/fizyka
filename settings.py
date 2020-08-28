@@ -8,10 +8,10 @@ n_L = n_H
 height = n_H * radius
 width = n_L * radius
 
-max_atoms_number = 50 #int(0.25 * min([n_H, n_L]))
+max_atoms_number = 50
 atoms_number = 12
 
-k = 20  # min([n_H, n_L])
+k = 20
 dt = 1 / (k * max_v)  # time step
 frames = 250
 Dt = frames * dt  # total time

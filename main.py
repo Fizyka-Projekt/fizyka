@@ -16,6 +16,8 @@ def check():
         settings.k = min(settings.n_H,settings.n_L)
     settings.dt = 1 / (settings.k * settings.max_v)
     settings.Dt = settings.frames * settings.dt
+    settings.width = settings.n_L * settings.radius
+    settings.height = settings.n_H * settings.radius
 
 
 def add_atoms(N):
@@ -110,7 +112,7 @@ for M in Mlist:
             if N == settings.atoms_number and M == settings.frames:
                 animation.draw(0,atom_list[0])
         plot_ydata.append(atom_list[0].path / (atom_list[0].collisions + 1))
-        plot2_ydata.append(atom_list[0].collisions + 1 / M * settings.dt)
+        plot2_ydata.append((atom_list[0].collisions + 1) / M * settings.dt)
         if N == settings.atoms_number and M == settings.frames:
             print("Please wait until all calculations are finished")
 
